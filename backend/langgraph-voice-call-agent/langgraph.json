@@ -1,0 +1,10 @@
+{
+    "graphs": {
+        "str_supervisor": "./src/langgraph/str_agent.py:agent"
+    },
+    "env": ".env",
+    "dependencies": [
+        "."
+    ],
+    "dockerfile_lines": []
+}

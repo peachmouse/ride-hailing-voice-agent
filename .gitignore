@@ -1,0 +1,51 @@
+# Environment / secrets
+.env
+.env.local
+.env*.local
+!.env.example
+!.env.local.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Node
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# LangGraph
+.langgraph_api/
+.langgraph_checkpoint*
+.langgraph_ops*
+.langgraph_retry_counter*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Misc
+*.tmp
+*.temp
+*.pem
+nul
