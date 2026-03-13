@@ -117,4 +117,4 @@ Open **http://localhost:3000** and click **Start Voice Call** or **Start Chat**.
 
 ## Production Integration
 
-The mock tools (`book_ride`, `estimate_fare`, `check_ride_status`, `get_nearby_locations`) would be replaced with real calls to FreeNow's internal microservices (via gRPC or message queues), making the agent a natural-language interface on top of existing booking, pricing, and dispatch infrastructure. LiveKit would be swapped for Aircall or FreeNow's telephony stack.
+The mock tools (`book_ride`, `estimate_fare`, `check_ride_status`, `get_nearby_locations`) would be replaced with real calls to internal microservices (via gRPC or message queues), making the agent a natural-language interface on top of existing booking, pricing, and dispatch infrastructure. LiveKit would be swapped for Aircall's telephony stack.
