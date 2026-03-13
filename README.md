@@ -71,30 +71,65 @@ frontend/langgraph-voice-call-agent-web/
 
 ### Prerequisites
 
-- Python 3.12+, [uv](https://github.com/astral-sh/uv) package manager
+- Python 3.12+, [uv](https://docs.astral.sh/uv/getting-started/installation/) package manager
 - Node.js 18+
 - Docker
-- API keys: Anthropic, Deepgram, Cartesia, LiveKit
+- API keys: **Anthropic**, **Deepgram**, **Cartesia**
 
-### Backend
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/peachmouse/ride-hailing-voice-agent.git
+cd ride-hailing-voice-agent
+```
+
+### 2. Backend setup
 
 ```bash
 cd backend/langgraph-voice-call-agent
-cp .env.example .env               # Add your API keys
-uv sync                            # Install dependencies
+cp .env.example .env
+```
+
+Edit `.env` and fill in your API keys:
+
+```
+ANTHROPIC_API_KEY=sk-ant-...
+DEEPGRAM_API_KEY=...
+CARTESIA_API_KEY=...
+```
+
+LiveKit keys (`devkey`/`secret`) and `LANGGRAPH_URL` are pre-configured for local dev. Then:
+
+```bash
+uv sync                            # Install Python dependencies
+make download-files                # Download VAD model
 docker compose up -d               # Start local LiveKit server
 make dev-all                       # Start LangGraph server + voice agent
 ```
 
-### Frontend
+### 3. Frontend setup (new terminal)
 
 ```bash
 cd frontend/langgraph-voice-call-agent-web
-npm install
-npm run dev                        # http://localhost:3000
+cp .env.local.example .env.local
 ```
 
-Open **http://localhost:3000** and click **Start Voice Call** or **Start Chat**.
+Edit `.env.local` and set the assistant ID:
+
+```
+NEXT_PUBLIC_LANGGRAPH_ASSISTANT_ID=freenow_agent
+```
+
+Then:
+
+```bash
+npm install
+npm run dev
+```
+
+### 4. Open the app
+
+Go to **http://localhost:3000** and click **Start Voice Call** or **Start Chat**.
 
 ## Testing
 
