@@ -36,7 +36,7 @@ class VisionAssistant(Agent):
         self._has_video_input = False
         self._room = None
         super().__init__(
-            instructions="You are a voice AI assistant for short-term rental property management. You coordinate market research, portfolio analysis, and communications for an STR management company. You can also see and understand visual content from the user's camera or screen sharing. Keep your responses concise and suitable for voice output."
+            instructions="You are a FreeNow ride-hailing booking assistant. You help users book rides and check booking status. You can also see and understand visual content from the user's camera or screen sharing. Keep your responses concise and suitable for voice output."
         )
 
     async def on_enter(self):
@@ -383,8 +383,8 @@ async def entrypoint(ctx: JobContext):
 
     # Remote LangGraph compiled graph. Ensure the LangGraph server is running.
     # RemoteGraph: https://github.com/langchain-ai/langgraph/blob/main/docs/docs/how-tos/use-remote-graph.md
-    graph = RemoteGraph("str_supervisor", url=langgraph_url)
-    logger.info(f"Connected to LangGraph graph 'str_supervisor' at {langgraph_url}")
+    graph = RemoteGraph("freenow_agent", url=langgraph_url)
+    logger.info(f"Connected to LangGraph graph 'freenow_agent' at {langgraph_url}")
 
     # Create the agent session with video processing enabled
     # AgentSession wiring & options: https://github.com/livekit/agents/blob/main/README.md#_snippet_1
@@ -409,7 +409,7 @@ async def entrypoint(ctx: JobContext):
             model="nova-3",
             language="en",
             smart_format=True,
-            keyterms=["property", "properties", "portfolio", "Austin", "Airbnb", "occupancy", "rental", "revenue"],
+            keyterms=["FreeNow", "pickup", "dropoff", "booking", "ride", "driver", "Warsaw", "airport", "station", "scheduled"],
         ),
         llm=LangGraphAdapter(
             graph,
@@ -439,9 +439,13 @@ async def entrypoint(ctx: JobContext):
         )
     )
 
+    # Small delay to ensure the participant's audio track is subscribed
+    # before the greeting plays, otherwise the TTS audio may be missed.
+    await asyncio.sleep(1)
+
     # Initial greeting — block interruptions so it plays fully before listening.
     await session.say(
-        "Hi! I'm your STR assistant — portfolio stats, market intel, owner messages. How can I help?",
+        "Hi, this is FreeNow's booking assistant. I can help you book a ride or check on an existing booking. How can I help?",
         allow_interruptions=False,
     )
 

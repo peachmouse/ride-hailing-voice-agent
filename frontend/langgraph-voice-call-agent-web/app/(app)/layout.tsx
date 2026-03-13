@@ -20,7 +20,7 @@ export default async function AppLayout({ children }: AppLayoutProps) {
           className="text-foreground flex items-center gap-3"
         >
           {logo && <Image src={logo} alt={appName} width={56} height={56} />}
-          <Image src="/hostaway-logo.svg" alt="Hostaway" width={140} height={40} />
+          <Image src="/freenow-logo.svg" alt="FreeNow" width={180} height={52} />
         </Link>
       </header>
       {children}

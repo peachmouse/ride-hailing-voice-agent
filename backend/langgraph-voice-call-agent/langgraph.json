@@ -1,6 +1,6 @@
 {
     "graphs": {
-        "str_supervisor": "./src/langgraph/str_agent.py:agent"
+        "freenow_agent": "./src/langgraph/freenow_agent.py:agent"
     },
     "env": ".env",
     "dependencies": [

@@ -1,10 +1,10 @@
 import type { AppConfig } from './lib/types';
 
 export const APP_CONFIG_DEFAULTS: AppConfig = {
-  appName: 'STR Property Manager',
-  pageTitle: 'STR Property Management Assistant',
+  appName: 'FreeNow Booking Assistant',
+  pageTitle: 'FreeNow Ride Booking Assistant',
   pageDescription:
-    'AI-powered short-term rental management — portfolio analytics, market research, and owner communications via voice or chat',
+    'AI-powered ride-hailing assistant — book rides and check booking status via voice or chat',
 
   supportsChatInput: true,
   supportsVideoInput: true,
@@ -12,9 +12,9 @@ export const APP_CONFIG_DEFAULTS: AppConfig = {
   isPreConnectBufferEnabled: true,
 
   logo: '/angryUnicorn.png',
-  accent: '#002cf2',
+  accent: '#015478',
   logoDark: '/angryUnicorn.png',
-  accentDark: '#1fd5f9',
+  accentDark: '#ff0a2b',
   startButtonText: 'Start Voice Call',
   startChatButtonText: 'Start Chat',
 
