@@ -1,6 +1,6 @@
 # FreeNow Ride-Hailing Voice Agent
 
-AI-powered voice agent for booking rides and checking booking status. Built as a proof-of-concept for FreeNow by Lyft — demonstrating what an intelligent voice assistant can do that a traditional IVR cannot.
+AI-powered voice agent for booking rides and checking booking status. Built as a proof-of-concept for a ride-hailing app such as FreeNow by Lyft — demonstrating what an intelligent voice assistant can do that a traditional IVR cannot.
 
 ## What It Does
 
